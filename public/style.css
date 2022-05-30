@@ -1,0 +1,18 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-color: rgba(131, 218, 169, 0.84);
+  font-family: 'Teko',Arial, sans-serif;
+}
+img{
+  height: 200px;
+}
+.hidden{
+  display: none;
+}
+.jumbotron{
+  background-color:rgb(223, 128, 160)
+}
+h1,h2,h3{
+  font-family: 'Teko',Arial, sans-serif;
+}
