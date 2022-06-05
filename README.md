@@ -1,13 +1,10 @@
-## Installation
+## Birthday Tracker:
+This is a full-stack web application that allows users to create a profile and save the birthdates of friends and family. User are also able to click on a star to add certain people to a close friends list.
+![2022-06-05 (3)](https://user-images.githubusercontent.com/102920855/172067237-5b191cdb-297e-474e-b5a8-dcb27e8c9fa7.png)
+## Languages Used:
 
-1. Clone repo
-2. run `npm install`
+HTML, CSS, JavaScript, Express, Node.js, Mongodb
 
-## Usage
+## Lessons Learned:
+This app helped me better understand how my client and server-side are connected and how to apply my requests correctly.
 
-1. run `node server.js`
-2. Navigate to `localhost:8080`
-
-## Credit
-
-Modified from Scotch.io's auth tutorial
