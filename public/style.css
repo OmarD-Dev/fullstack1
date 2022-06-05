@@ -16,3 +16,13 @@ img{
 h1,h2,h3{
   font-family: 'Teko',Arial, sans-serif;
 }
+.row{
+  font-size: 2rem;
+}
+.friends{
+  font-size: 2rem;
+}
+.dog{
+  display: flex;
+  justify-content: center;
+}

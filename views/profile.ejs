@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>Birthday Tracker</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
@@ -11,14 +11,44 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-gift"></span> Manage Your Birthday List</h1>
+        <h1><span class="fa fa-gift"></span> Birthday Tracker</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
-
+    <div class="dog">
+      <img  src="img/cake.gif" alt="Birthday dog">
+    </div>
     <div class="row">
+      <div class="col-sm-6">
+        <h2>Birthdays</h2>
+        <ul class="birthdates">
+        <% for(let i=0; i<birthdays.length; i++) {%>
+          <% if (user.local.favorites.indexOf(birthdays[i]._id) === -1) { %>
+          <li class="birthdays">
+            
+            <span><%= birthdays[i].name %></span>
+            <span><%= birthdays[i].date %></span>
+            <span class="hidden"><%= birthdays[i]._id %></span>
+            <!-- <span><%= birthdays[i].favorite %></span> -->
+          
+            <span><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+            
+            <span><i class="fa fa-ban" aria-hidden="true"></i></span>
+          </li>
+          <%  }%>  
+        <% } %>
+        </ul>
 
+        <h3>Add a Birthday</h3>
+      <% if (user.local.email) { %>
+        <form action="/create" method="POST">
+          <input type="text" value="<%= user.local.email %>" name="name">
+          <input type="date" placeholder="Enter Birthday" name="date">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <% } %>
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
+        <div class="friends col-sm-6">
             <div class="hidden well">
                 <h3><span class="fa fa-user"></span> Local</h3>
 
@@ -35,7 +65,7 @@
       
                     <% } %>
             </div>
-            <h3>Close Friends List</h3>  
+            <h2>Close Friends List</h2>  
             <ul class="favorites"> 
               <!-- Need to show all of the favorited birthdays. -->
               <% for(let i=0; i<birthdays.length; i++) {%>
@@ -67,37 +97,8 @@
           3. what would it look if i removed a favorite? we used mongodb syntax for push so probably slice or some shit 
         4. What happens if i favorite something that I already favorited? How do i stop the suer from favoriting something twice? maybe click count ? 
       5. think of how to rwrite line 40 so that -->
-        </div>
-        <div class="col-sm-6">
-          <h3>Birthdays</h3>
-          <ul class="birthdates">
-          <% for(let i=0; i<birthdays.length; i++) {%>
-            <% if (user.local.favorites.indexOf(birthdays[i]._id) === -1) { %>
-            <li class="birthdays">
-              
-              <span><%= birthdays[i].name %></span>
-              <span><%= birthdays[i].date %></span>
-              <span class="hidden"><%= birthdays[i]._id %></span>
-              <!-- <span><%= birthdays[i].favorite %></span> -->
-            
-              <span><i class="fa fa-bookmark" aria-hidden="true"></i></span>
-              
-              <span><i class="fa fa-ban" aria-hidden="true"></i></span>
-            </li>
-            <%  }%>  
-          <% } %>
-          </ul>
-
-          <h2>Add a Birthday</h2>
-        <% if (user.local.email) { %>
-          <form action="/create" method="POST">
-            <input type="text" value="<%= user.local.email %>" name="name">
-            <input type="date" placeholder="Enter Birthday" name="date">
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <% } %>
-
+       </div>
+  </div>
 </div>
 
 <script src="main.js"></script>
